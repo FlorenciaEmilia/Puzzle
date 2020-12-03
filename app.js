@@ -2,6 +2,7 @@ const fill = document.querySelector(".fill");
 const empties = document.querySelectorAll(".empty");
 
 const puzzlePieces = document.querySelectorAll(".fill");
+const puzzlePiecesContainer = document.querySelector(".puzzle-pieces");
 let imageToAppend = null;
 
 //Fill Listeners
@@ -25,10 +26,15 @@ function dragStart() {
 
 function dragEnd(e) {
   this.className = "fill";
-  //Testing for background
-  //maybe image to append will be set to null
+  let parentNode = this.parentNode;
 
-  console.log("end");
+  if (parentNode.childNodes.length > 1) {
+    let firstChild = parentNode.firstChild;
+    parentNode.removeChild(firstChild);
+    parentNode.append(imageToAppend);
+    puzzlePiecesContainer.append(firstChild);
+  }
+  parentNode.append(imageToAppend);
 }
 
 function dragOver(e) {
@@ -38,12 +44,14 @@ function dragOver(e) {
 function dragEnter(e) {
   e.preventDefault();
   this.className += " hovered";
+  console.log("entered");
+  console.log(this);
 }
 function dragLeave() {
   this.className = "empty";
+  console.log("left");
 }
 function dragDrop(e) {
   this.className = "empty";
-  //this.append(fill);
   this.append(imageToAppend);
 }
