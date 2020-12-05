@@ -27,6 +27,7 @@ function dragStart() {
 function dragEnd(e) {
   this.className = "fill";
   let parentNode = this.parentNode;
+  //let parentNodeClass = parentNode.getAttribute("class");
 
   if (parentNode.childNodes.length > 1) {
     let firstChild = parentNode.firstChild;
@@ -34,6 +35,7 @@ function dragEnd(e) {
     parentNode.append(imageToAppend);
     puzzlePiecesContainer.append(firstChild);
   }
+
   parentNode.append(imageToAppend);
 }
 
@@ -44,14 +46,12 @@ function dragOver(e) {
 function dragEnter(e) {
   e.preventDefault();
   this.className += " hovered";
-  console.log("entered");
-  console.log(this);
 }
 function dragLeave() {
   this.className = "empty";
-  console.log("left");
 }
 function dragDrop(e) {
   this.className = "empty";
+
   this.append(imageToAppend);
 }

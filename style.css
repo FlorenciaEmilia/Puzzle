@@ -1,6 +1,17 @@
 body {
   background-color: darksalmon;
 }
+h1 {
+  font-family: "Nerko One", cursive;
+  color: white;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 4em;
+}
+.game-container {
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .fill {
   /* background-image: url(./puzzle-pieces/maxresdefault.jpg); */
