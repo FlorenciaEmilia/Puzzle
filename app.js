@@ -25,6 +25,35 @@ let shuffleNumbers = shuffleArray([...puzzlePieces].map((x, i) => i + 1));
 [...puzzlePieces].map(
   (x, i) => (x.src = `./puzzle-pieces/${shuffleNumbers[i]}.png`)
 );
+
+//Function to check that all the puzzle pieces are in the right order
+let piecesInsideThePuzzle = document.querySelectorAll(".puzzle-place .empty");
+
+function getPieces() {
+  let currentPiecesIDs = [];
+  for (let piece of piecesInsideThePuzzle) {
+    let pieceInfo = piece.firstChild;
+    let regex = /\d/g;
+    if (pieceInfo) {
+      currentPiecesIDs.push(+pieceInfo.attributes[3].nodeValue.match(regex));
+    }
+  }
+  return currentPiecesIDs;
+}
+
+function gameOver() {
+  let currentPieces = getPieces();
+  if (currentPieces.length == puzzlePieces.length) {
+    for (let i = 0; i < currentPieces.length; i++) {
+      if (currentPieces[i] !== i + 1) {
+        return;
+      }
+    }
+    alert("you won");
+  }
+  //return arr;
+}
+
 //Loop though empties and call drag events
 for (const empty of empties) {
   empty.addEventListener("dragover", dragOver);
