@@ -9,6 +9,20 @@ let imageToAppend = null;
 puzzlePieces.forEach((x) => x.addEventListener("dragstart", dragStart));
 puzzlePieces.forEach((x) => x.addEventListener("dragend", dragEnd));
 
+//Shuffler btn
+const shuffleBtn = document.querySelector("#shuffler");
+shuffleBtn.addEventListener("click", () => {
+  // let shuffleNumbers = shuffleArray([...puzzlePieces].map((x, i) => i + 1));
+  let elementsInsidePuzzleContainer = puzzlePiecesContainer.children;
+  let shuffleNumbers = shuffleArray(
+    [...elementsInsidePuzzleContainer].map((x, i) => i + 1)
+  );
+
+  [...elementsInsidePuzzleContainer].map(
+    (x, i) => (x.src = `./puzzle-pieces/easy/${shuffleNumbers[i]}.png`)
+  );
+});
+
 //Grab all the images and assign a src randomly
 //Swift indexes
 function shuffleArray(array) {
