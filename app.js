@@ -19,7 +19,7 @@ shuffleBtn.addEventListener("click", () => {
   );
 
   [...elementsInsidePuzzleContainer].map(
-    (x, i) => (x.src = `./puzzle-pieces/easy/${shuffleNumbers[i]}.png`)
+    (x, i) => (x.src = `./puzzle-pieces/medium/${shuffleNumbers[i]}.png`)
   );
 });
 
@@ -37,7 +37,7 @@ function shuffleArray(array) {
 let shuffleNumbers = shuffleArray([...puzzlePieces].map((x, i) => i + 1));
 
 [...puzzlePieces].map(
-  (x, i) => (x.src = `./puzzle-pieces/easy/${shuffleNumbers[i]}.png`)
+  (x, i) => (x.src = `./puzzle-pieces/medium/${shuffleNumbers[i]}.png`)
 );
 
 //Function to check that all the puzzle pieces are in the right order
