@@ -23,7 +23,7 @@ function shuffleArray(array) {
 let shuffleNumbers = shuffleArray([...puzzlePieces].map((x, i) => i + 1));
 
 [...puzzlePieces].map(
-  (x, i) => (x.src = `./puzzle-pieces/${shuffleNumbers[i]}.png`)
+  (x, i) => (x.src = `./puzzle-pieces/easy/${shuffleNumbers[i]}.png`)
 );
 
 //Function to check that all the puzzle pieces are in the right order
@@ -97,7 +97,6 @@ function dragEnter(e) {
 }
 function dragLeave() {
   this.className = "empty";
-  console.log("left");
 }
 function dragDrop(e) {
   this.className = "empty";

@@ -16,18 +16,16 @@ h1 {
 .fill {
   /* background-image: url(./puzzle-pieces/maxresdefault.jpg); */
   position: relative;
-  height: 150px;
-  width: 150px;
-  top: 5px;
-  left: 5px;
+  height: 170px;
   cursor: pointer;
 }
 
 .empty {
+  margin: 0;
+  padding: 0;
   display: inline-block;
-  height: 160px;
-  width: 160px;
-  border: 1px salmon solid;
+  height: 170px;
+  width: 135px;
   background-color: white;
 }
 
