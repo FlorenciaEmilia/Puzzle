@@ -58,7 +58,7 @@ function gameOver() {
 for (const empty of empties) {
   empty.addEventListener("dragover", dragOver);
   empty.addEventListener("dragenter", dragEnter);
-  empty.addEventListener("dragover", dragLeave);
+  empty.addEventListener("dragleave", dragLeave);
   empty.addEventListener("dragover", dragDrop);
 }
 
@@ -82,6 +82,9 @@ function dragEnd(e) {
   }
 
   parentNode.append(imageToAppend);
+  //Implement the gameOver checker
+  //set a time out for like a second or two to announce
+  setTimeout(gameOver, 200);
 }
 
 function dragOver(e) {
@@ -94,6 +97,7 @@ function dragEnter(e) {
 }
 function dragLeave() {
   this.className = "empty";
+  console.log("left");
 }
 function dragDrop(e) {
   this.className = "empty";
