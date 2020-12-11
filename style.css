@@ -1,22 +1,24 @@
 body {
   background: #d64f65;
+  box-sizing: content-box;
 }
 h1 {
   font-family: "Nerko One", cursive;
   color: white;
   letter-spacing: 1px;
   text-align: center;
-  font-size: 4em;
+  font-size: 4.5em;
+  margin-top: 0;
 }
 .game-container {
   display: flex;
   justify-content: space-evenly;
+  /* height: 50vh; */
 }
 
 .fill {
-  /* background-image: url(./puzzle-pieces/maxresdefault.jpg); */
   position: relative;
-  height: 170px;
+  height: 17vh;
   cursor: pointer;
 }
 
@@ -24,8 +26,9 @@ h1 {
   margin: 0;
   padding: 0;
   display: inline-block;
-  height: 170px;
-  width: 135px;
+  height: 17vh;
+  /* width: 135px; */
+  width: 13.5vh;
   background-color: white;
 }
 
@@ -46,5 +49,23 @@ h1 {
 .puzzle-pieces {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  width: fit-content;
+}
+
+#btn {
+  margin: 1em;
+  width: 100vw;
+  display: flex;
+
+  justify-content: center;
+}
+#shuffler {
+  border: white 2px solid;
+  border-radius: 1em;
+  padding: 1em;
+  background-color: #8dc989;
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 700;
+  color: white;
+  outline: 0;
+  font-size: 1em;
 }
