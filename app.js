@@ -25,6 +25,7 @@ shuffleBtn.addEventListener("click", () => {
 
 //Grab all the images and assign a src randomly
 //Swift indexes
+//Debug because is shuffling from the image array instead of the remaining images
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
@@ -45,24 +46,28 @@ let piecesInsideThePuzzle = document.querySelectorAll(".puzzle-place .empty");
 
 function getPieces() {
   let currentPiecesIDs = [];
-  for (let piece of piecesInsideThePuzzle) {
-    let pieceInfo = piece.firstChild;
-    let regex = /\d/g;
-    if (pieceInfo) {
-      currentPiecesIDs.push(+pieceInfo.attributes[3].nodeValue.match(regex));
+  //First check that all the pieces are in the puzzle
+  if (puzzlePiecesContainer.childElementCount == 0) {
+    for (let piece of piecesInsideThePuzzle) {
+      let pieceInfo = piece.firstChild.src;
+      let regex = /\d{1,2}\.png/g;
+      if (pieceInfo !== null) {
+        currentPiecesIDs.push(+pieceInfo.match(regex)[0].match(/\d{1,2}/)[0]);
+      }
     }
+    return currentPiecesIDs;
   }
-  return currentPiecesIDs;
 }
 
 function gameOver() {
   let currentPieces = getPieces();
-  if (currentPieces.length == puzzlePieces.length) {
+  if (currentPieces) {
     for (let i = 0; i < currentPieces.length; i++) {
       if (currentPieces[i] !== i + 1) {
         return;
       }
     }
+    //startConfetti();
     alert("you won");
   }
   //return arr;
