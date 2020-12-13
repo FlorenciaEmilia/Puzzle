@@ -12,15 +12,17 @@ puzzlePieces.forEach((x) => x.addEventListener("dragend", dragEnd));
 //Shuffler btn
 const shuffleBtn = document.querySelector("#shuffler");
 shuffleBtn.addEventListener("click", () => {
-  // let shuffleNumbers = shuffleArray([...puzzlePieces].map((x, i) => i + 1));
   let elementsInsidePuzzleContainer = puzzlePiecesContainer.children;
-  let shuffleNumbers = shuffleArray(
-    [...elementsInsidePuzzleContainer].map((x, i) => i + 1)
-  );
 
-  [...elementsInsidePuzzleContainer].map(
-    (x, i) => (x.src = `./puzzle-pieces/medium/${shuffleNumbers[i]}.png`)
-  );
+  let currentCardsIDs = idGetter(elementsInsidePuzzleContainer);
+
+  let shuffleCards = shuffleArray([...currentCardsIDs]);
+
+  for (let i = 0; i < elementsInsidePuzzleContainer.length; i++) {
+    elementsInsidePuzzleContainer[
+      i
+    ].src = `./puzzle-pieces/medium/${shuffleCards[i]}.png`;
+  }
 });
 
 //Grab all the images and assign a src randomly
@@ -35,6 +37,7 @@ function shuffleArray(array) {
   }
   return array;
 }
+
 let shuffleNumbers = shuffleArray([...puzzlePieces].map((x, i) => i + 1));
 
 [...puzzlePieces].map(
@@ -43,6 +46,18 @@ let shuffleNumbers = shuffleArray([...puzzlePieces].map((x, i) => i + 1));
 
 //Function to check that all the puzzle pieces are in the right order
 let piecesInsideThePuzzle = document.querySelectorAll(".puzzle-place .empty");
+//This idGetter function will be inside of getPieces in case it works!
+function idGetter(arr) {
+  let currentPiecesIDs = [];
+  for (let image of arr) {
+    let pieceInfo = image.currentSrc;
+    let regex = /\d{1,2}\.png/g;
+    if (pieceInfo !== null) {
+      currentPiecesIDs.push(+pieceInfo.match(regex)[0].match(/\d{1,2}/)[0]);
+    }
+  }
+  return currentPiecesIDs;
+}
 
 function getPieces() {
   let currentPiecesIDs = [];
