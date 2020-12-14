@@ -82,7 +82,21 @@ function gameOver() {
         return;
       }
     }
-    //startConfetti();
+    // const MyPromise = require("some-promise-lib");
+    // const confetti = require("canvas-confetti");
+    // confetti.Promise = MyPromise;
+
+    confetti({
+      particleCount: 100,
+      startVelocity: 30,
+      spread: 360,
+      origin: {
+        x: Math.random(),
+        // since they fall down, start a bit higher than random
+        y: Math.random() - 0.2,
+      },
+    });
+
     alert("you won");
   }
   //return arr;
@@ -104,6 +118,7 @@ function dragStart() {
 }
 
 function dragEnd(e) {
+  this.classList.remove("invisible");
   this.className = "fill";
   let parentNode = this.parentNode;
   //let parentNodeClass = parentNode.getAttribute("class");
