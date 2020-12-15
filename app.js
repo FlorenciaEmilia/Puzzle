@@ -94,7 +94,7 @@ function gameOver() {
       spread: 360,
     });
 
-    //alert("you won");
+    shuffleBtn.parentNode.removeChild(shuffleBtn);
   }
   //return arr;
 }
