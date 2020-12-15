@@ -1,5 +1,6 @@
 const fill = document.querySelector(".fill");
 const empties = document.querySelectorAll(".empty");
+const gameContainer = document.querySelector(".game-container");
 
 const puzzlePieces = document.querySelectorAll(".fill");
 const puzzlePiecesContainer = document.querySelector(".puzzle-pieces");
@@ -82,22 +83,18 @@ function gameOver() {
         return;
       }
     }
-    // const MyPromise = require("some-promise-lib");
-    // const confetti = require("canvas-confetti");
-    // confetti.Promise = MyPromise;
-
+    //If user wins append the congrats gif in the left side. In game-container
+    let gifCongrats = document.createElement("img");
+    gifCongrats.src = "./congratulations.gif";
+    gifCongrats.classList.add("gif");
+    gameContainer.append(gifCongrats);
     confetti({
-      particleCount: 100,
-      startVelocity: 30,
+      particleCount: 1000,
+      startVelocity: 110,
       spread: 360,
-      origin: {
-        x: Math.random(),
-        // since they fall down, start a bit higher than random
-        y: Math.random() - 0.2,
-      },
     });
 
-    alert("you won");
+    //alert("you won");
   }
   //return arr;
 }

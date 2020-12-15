@@ -51,6 +51,10 @@ h1 {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.gif {
+  height: 100%;
+}
+
 #btn {
   margin: 1em;
   width: 100vw;
