@@ -95,8 +95,9 @@ function gameOver() {
     });
 
     shuffleBtn.parentNode.removeChild(shuffleBtn);
+    //Remove the draggable attribute once the user wins
+    puzzlePieces.forEach((x) => x.setAttribute("draggable", false));
   }
-  //return arr;
 }
 
 //Loop though empties and call drag events
