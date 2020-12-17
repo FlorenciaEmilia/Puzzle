@@ -90,7 +90,7 @@ function gameOver() {
     gameContainer.append(gifCongrats);
     confetti({
       particleCount: 1000,
-      startVelocity: 110,
+      startVelocity: 70,
       spread: 360,
     });
 
