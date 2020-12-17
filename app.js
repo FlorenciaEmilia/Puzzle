@@ -121,7 +121,6 @@ function dragEnd(e) {
   this.classList.remove("invisible");
   this.className = "fill";
   let parentNode = this.parentNode;
-  //let parentNodeClass = parentNode.getAttribute("class");
 
   if (parentNode.childNodes.length > 1) {
     let firstChild = parentNode.firstChild;
@@ -132,7 +131,7 @@ function dragEnd(e) {
 
   parentNode.append(imageToAppend);
   //Implement the gameOver checker
-  //set a time out for like a second or two to announce
+  //set a time out to announce win
   setTimeout(gameOver, 200);
 }
 

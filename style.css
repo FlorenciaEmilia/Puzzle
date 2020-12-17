@@ -9,8 +9,6 @@ html {
 
 body {
   background: #d64f65;
-
-  /* box-sizing: content-box; */
 }
 h1 {
   font-family: "Nerko One", cursive;
@@ -29,7 +27,6 @@ h1 {
 
 .fill {
   position: relative;
-  /* height: 17vh; */
   cursor: pointer;
 }
 
@@ -102,7 +99,7 @@ a {
   color: #d4b4bb;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 750px) {
   h1 {
     font-size: 4.2em;
   }
