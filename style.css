@@ -23,12 +23,13 @@ h1 {
 .game-container {
   display: flex;
   justify-content: space-evenly;
-  /* height: 50vh; */
+  align-items: center;
+  flex-direction: column;
 }
 
 .fill {
   position: relative;
-  height: 17vh;
+  /* height: 17vh; */
   cursor: pointer;
 }
 
@@ -36,10 +37,12 @@ h1 {
   margin: 0;
   padding: 0;
   display: inline-block;
-  height: 17vh;
-  /* width: 135px; */
-  width: 13.5vh;
   background-color: white;
+  width: 12vh;
+}
+.fill,
+.empty {
+  height: 15vh;
 }
 
 .hold {
@@ -59,6 +62,10 @@ h1 {
 .puzzle-pieces {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.puzzle-place {
+  margin-bottom: 3em;
 }
 
 .gif {
@@ -93,4 +100,31 @@ footer {
 
 a {
   color: #d4b4bb;
+}
+
+@media only screen and (min-width: 992px) {
+  h1 {
+    font-size: 4.2em;
+  }
+  .game-container {
+    flex-direction: row;
+  }
+  .fill,
+  .empty {
+    height: 17vh;
+    width: 13.5vh;
+  }
+  #btn {
+    margin: 1em;
+  }
+  .puzzle-place,
+  .puzzle-pieces {
+    width: fit-content;
+  }
+  .puzzle-place {
+    margin-bottom: 0;
+  }
+  .game-over {
+    flex-direction: row;
+  }
 }

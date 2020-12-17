@@ -97,6 +97,8 @@ function gameOver() {
     shuffleBtn.parentNode.removeChild(shuffleBtn);
     //Remove the draggable attribute once the user wins
     puzzlePieces.forEach((x) => x.setAttribute("draggable", false));
+    //make gif display in column in mobile sizes
+    gameContainer.classList.add("game-over");
   }
 }
 
