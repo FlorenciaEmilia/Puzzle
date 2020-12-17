@@ -73,3 +73,14 @@ h1 {
   outline: 0;
   font-size: 1em;
 }
+
+footer {
+  text-align: center;
+  color: #911f32;
+  opacity: 0.5;
+  font-family: "Yantramanav", sans-serif;
+}
+
+a {
+  color: #d4b4bb;
+}
